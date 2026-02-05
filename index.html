@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Budi moje Valentinovo</title>
+
+<style>
+body{margin:0;display:flex;justify-content:center;align-items:center;height:100vh;background:#0f172a;color:white;font-family:Arial}
+.container{background:#020617;padding:25px;border-radius:15px;text-align:center}
+.bear{width:140px}
+button{padding:12px 25px;font-size:18px;border:none;border-radius:30px;margin:10px}
+.yes{background:#ec4899;color:white}
+.no{background:#ccc}
+</style>
+</head>
+
+<body>
+
+<audio id="song" src="love.mp3"></audio>
+
+<div class="container" id="box">
+<img src="medo.png" class="bear">
+<h2>Lucija, hoćeš li biti moje Valentinovo?</h2>
+<button class="yes" onclick="yes()">DA</button>
+<button class="no" onclick="no()">NE</button>
+<p id="text"></p>
+</div>
+
+<script>
+let i=0;
+const msgs=["Jesi sigurna?","Ajde molim te","Bez tebe ne mogu","Samo DA ❤️"];
+
+function no(){
+document.getElementById("text").innerText=msgs[i%msgs.length];
+i++;
+document.querySelector(".yes").style.fontSize=(18+i*5)+"px";
+}
+
+function yes(){
+document.getElementById("song").play();
+document.getElementById("box").innerHTML="<h2>Hvala Lucija ❤️</h2><p>Volim te najviše na svijetu 💖</p><img src='medo.png' class='bear'>";
+}
+</script>
+
+</body>
+</html>
